@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+    Hello there {{ user.username }}
+
+    {% if user.is_consumer %}
+
+        {% for venue in venues %}
+        <h1>{{ venue.name }}</h1>
+        <a href="{% url 'booking_manager:book_for' venue.id %}">Book this place</a>
+        {% endfor %} 
+    {% endif %}
+
+{% endblock %}

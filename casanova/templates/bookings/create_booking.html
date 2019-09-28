@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block 'content' %} Create Booking
+
+<form action="{% url 'booking_manager:create_booking'%}" method="POST">
+  <input type="" />
+</form>
+
+{% for venue in venues %}
+<h1>{{ venue.name }}</h1>
+<a href="{% url 'booking_manager:book_for' venue.id %}">Book this place</a>
+{% endfor %} {% endblock %}

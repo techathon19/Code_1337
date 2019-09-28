@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'authenticator'
+    'authenticator',
+    'booking_manager'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'casanova.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,3 +123,10 @@ STATIC_URL = '/static/'
 
 
 AUTH_USER_MODEL = 'authenticator.BasicUser'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
+
+IMAGE_URL = "https://www.portseattle.org/sites/default/files/styles/detailpageimagesize/public/2018-04/Beijing%20U-Shape%20%2B%20Audience.jpg?itok=dG9wB-78"
