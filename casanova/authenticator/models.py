@@ -41,6 +41,7 @@ class Venue(models.Model):
     )
     name = models.CharField(max_length=50, null=False, blank=False)
     capacity = models.IntegerField()
+    price_per_hour = models.IntegerField()
     air_conditioned = models.BooleanField(default=False)
     catering_service = models.BooleanField(default=False)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
@@ -51,7 +52,7 @@ class Venue(models.Model):
     closing_time = models.TimeField(auto_now=False, auto_now_add=False)
     def __str__(self):
         return self.name
-        
+
 class Consumer(models.Model):
     user = models.OneToOneField(BasicUser, on_delete=models.CASCADE)
     address = models.OneToOneField(Address, on_delete=models.PROTECT)

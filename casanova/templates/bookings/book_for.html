@@ -1,6 +1,25 @@
-{% extends 'base.html' %} 
-
-{% block 'content' %}
-{{venue.name}}
-
+{% extends 'base.html' %} {% block 'content' %}
+{{ venue.name }}
+<form action="{% url 'booking_manager:book_for' venue.id %}" method="POST">
+  {% csrf_token %}
+  <div>
+    <label>
+      Date of event
+      <input type="date" name="date" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Expected Time of Start
+      <input type="time" name="start_time" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Expected Time of End
+      <input type="time" name="end_time" />
+    </label>
+  </div>
+  <button>Book Venue</button>
+</form>
 {% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block 'content' %} Create Booking
+
+{% for booking in request.user.consumer.booking_set.all %}
+<h1>{{ booking.consumer.user.username }}</h1>
+<p>{{booking.amount}}</p>
+<p>{{booking.start_time}}-{{booking.end_time}}</p>
+{% endfor %} {% endblock %}
